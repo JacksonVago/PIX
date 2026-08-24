@@ -70,7 +70,8 @@ namespace PIX.Repositories
             //var JSON = System.IO.File.ReadAllText(_path);
             //obj_config = JObject.Parse(JSON);
 
-            _path = Path.Combine(@".\" + "configEmail.json");
+            //_path = Path.Combine(@".\" + "configEmail.json");
+            _path = Path.Combine(@"./" + "configEmail.json");
 
             var JSON = System.IO.File.ReadAllText(_path);
             var obj_config = JObject.Parse(JSON);
