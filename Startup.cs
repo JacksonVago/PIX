@@ -57,7 +57,7 @@ namespace PIX
             );
 
             //services.AddHostedService<PedDistanciaPIXHS>();
-            //services.AddHostedService<PIXHS>();
+            services.AddHostedService<PIXHS>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             _logger.LogInformation("Iniciou a API " + DateTime.Now.ToString("G"));
