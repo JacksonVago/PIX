@@ -132,7 +132,7 @@ namespace PIX.Repositories
 
                             //Local homologação
                             //var cert = new X509Certificate2(@"D:\Jackson\Clientes\Guaibim\certificados\2026\pixitau.pfx", "1234", X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.PersistKeySet | X509KeyStorageFlags.Exportable);
-                            var cert = new X509Certificate2(@".\pixitau.pfx", "1234", X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.PersistKeySet | X509KeyStorageFlags.Exportable);
+                            var cert = new X509Certificate2(@"./pixitau.pfx", "1234", X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.PersistKeySet | X509KeyStorageFlags.Exportable);
                             if ((Convert.ToDateTime(cert.GetExpirationDateString()) - DateTime.Now).TotalDays < 30)
                             {
                                 str_msg = "Certificado PIX Itaú (" + cert.ToString() + ") será expirado em " + (Convert.ToDateTime(cert.GetExpirationDateString()) - DateTime.Now).TotalDays.ToString() + " dias.";
@@ -447,7 +447,7 @@ namespace PIX.Repositories
 
                         //Local homologação
                         //var cert = new X509Certificate2(@"D:\Jackson\Clientes\Guaibim\certificados\2026\pixitau.pfx", "1234", X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.PersistKeySet | X509KeyStorageFlags.Exportable);
-                        var cert = new X509Certificate2(@".\pixitau.pfx", "1234", X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.PersistKeySet | X509KeyStorageFlags.Exportable);
+                        var cert = new X509Certificate2(@"./pixitau.pfx", "1234", X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.PersistKeySet | X509KeyStorageFlags.Exportable);
                         if ((Convert.ToDateTime(cert.GetExpirationDateString()) - DateTime.Now).TotalDays < 30)
                         {
                             str_msg = "Certificado PIX Itaú (" + cert.ToString() + ") será expirado em " + (Convert.ToDateTime(cert.GetExpirationDateString()) - DateTime.Now).TotalDays.ToString() + " dias.";
@@ -843,7 +843,7 @@ namespace PIX.Repositories
                         {
                             //Local homologação
                             //var cert = new X509Certificate2(@"D:\Jackson\Clientes\Guaibim\certificados\2026\pixitau.pfx", "1234", X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.PersistKeySet | X509KeyStorageFlags.Exportable);
-                            var cert = new X509Certificate2(@".\pixitau.pfx", "1234", X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.PersistKeySet | X509KeyStorageFlags.Exportable);
+                            var cert = new X509Certificate2(@"./pixitau.pfx", "1234", X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.PersistKeySet | X509KeyStorageFlags.Exportable);
                             if ((Convert.ToDateTime(cert.GetExpirationDateString()) - DateTime.Now).TotalDays < 30)
                             {
                                 str_msg = "Certificado PIX Itaú (" + cert.ToString() + ") será expirado em " + (Convert.ToDateTime(cert.GetExpirationDateString()) - DateTime.Now).TotalDays.ToString() + " dias.";
@@ -1188,7 +1188,7 @@ namespace PIX.Repositories
 
                             //Local homologação
                             //var cert = new X509Certificate2(@"D:\Jackson\Clientes\Guaibim\certificados\2026\pixitau.pfx", "1234", X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.PersistKeySet | X509KeyStorageFlags.Exportable);
-                            var cert = new X509Certificate2(@".\pixitau.pfx", "1234", X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.PersistKeySet | X509KeyStorageFlags.Exportable);
+                            var cert = new X509Certificate2(@"./pixitau.pfx", "1234", X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.PersistKeySet | X509KeyStorageFlags.Exportable);
                             if ((Convert.ToDateTime(cert.GetExpirationDateString()) - DateTime.Now).TotalDays < 30)
                             {
                                 str_msg = "Certificado PIX Itaú (" + cert.ToString() + ") será expirado em " + (Convert.ToDateTime(cert.GetExpirationDateString()) - DateTime.Now).TotalDays.ToString() + " dias.";
@@ -1489,7 +1489,7 @@ namespace PIX.Repositories
 
                             //Local homologação
                             //var cert = new X509Certificate2(@"D:\Jackson\Clientes\Guaibim\certificados\2026\pixitau.pfx", "1234", X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.PersistKeySet | X509KeyStorageFlags.Exportable);
-                            var cert = new X509Certificate2(@".\pixitau.pfx", "1234", X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.PersistKeySet | X509KeyStorageFlags.Exportable);
+                            var cert = new X509Certificate2(@"./pixitau.pfx", "1234", X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.PersistKeySet | X509KeyStorageFlags.Exportable);
                             if ((Convert.ToDateTime(cert.GetExpirationDateString()) - DateTime.Now).TotalDays < 30)
                             {
                                 str_msg = "Certificado PIX Itaú (" + cert.ToString() + ") será expirado em " + (Convert.ToDateTime(cert.GetExpirationDateString()) - DateTime.Now).TotalDays.ToString() + " dias.";
@@ -1840,7 +1840,7 @@ namespace PIX.Repositories
 
                                     //Local homologação
                                     //var cert = new X509Certificate2(@"D:\Jackson\Clientes\Guaibim\certificados\2026\pixitau.pfx", "1234", X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.PersistKeySet | X509KeyStorageFlags.Exportable);
-                                    var cert = new X509Certificate2(@".\pixitau.pfx", "1234", X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.PersistKeySet | X509KeyStorageFlags.Exportable);
+                                    var cert = new X509Certificate2(@"./pixitau.pfx", "1234", X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.PersistKeySet | X509KeyStorageFlags.Exportable);
                                     if ((Convert.ToDateTime(cert.GetExpirationDateString()) - DateTime.Now).TotalDays < 30)
                                     {
                                         str_msg = "Certificado PIX Itaú (" + cert.ToString() + ") será expirado em " + (Convert.ToDateTime(cert.GetExpirationDateString()) - DateTime.Now).TotalDays.ToString() + " dias.";
@@ -2215,7 +2215,7 @@ namespace PIX.Repositories
 
                                 //Local homologação
                                 //var cert = new X509Certificate2(@"D:\Jackson\Clientes\Guaibim\certificados\2026\pixitau.pfx", "1234", X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.PersistKeySet | X509KeyStorageFlags.Exportable);
-                                var cert = new X509Certificate2(@".\pixitau.pfx", "1234", X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.PersistKeySet | X509KeyStorageFlags.Exportable);
+                                var cert = new X509Certificate2(@"./pixitau.pfx", "1234", X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.PersistKeySet | X509KeyStorageFlags.Exportable);
                                 if ((Convert.ToDateTime(cert.GetExpirationDateString()) - DateTime.Now).TotalDays < 30)
                                 {
                                     str_msg = "Certificado PIX Itaú (" + cert.ToString() + ") será expirado em " + (Convert.ToDateTime(cert.GetExpirationDateString()) - DateTime.Now).TotalDays.ToString() + " dias.";
@@ -2590,7 +2590,7 @@ namespace PIX.Repositories
 
                             //Local homologação
                             //var cert = new X509Certificate2(@"C:\Jackson\Clientes\Guaibim\certificados\pixitau.pfx", "1234", X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.PersistKeySet | X509KeyStorageFlags.Exportable);
-                            var cert = new X509Certificate2(@".\pixitau.pfx", "1234", X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.PersistKeySet | X509KeyStorageFlags.Exportable);
+                            var cert = new X509Certificate2(@"./pixitau.pfx", "1234", X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.PersistKeySet | X509KeyStorageFlags.Exportable);
                             if ((Convert.ToDateTime(cert.GetExpirationDateString()) - DateTime.Now).TotalDays < 30)
                             {
                                 str_msg = "Certificado PIX Itaú (" + cert.ToString() + ") será expirado em " + (Convert.ToDateTime(cert.GetExpirationDateString()) - DateTime.Now).TotalDays.ToString() + " dias.";
