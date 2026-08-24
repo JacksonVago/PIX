@@ -60,7 +60,7 @@ namespace PIX.Repositories
         private readonly ILogger _logger;
         private readonly ConfigEmail _configEmail;
         private readonly string _path;
-        private JObject obj_config;
+        //private JObject obj_config;
 
         public PIXRepository(IConfiguration config, ILogger<PIXRepository> log)
         {
@@ -71,14 +71,14 @@ namespace PIX.Repositories
             _logger = log;
             _configEmail = new ConfigEmail();
             config.GetSection("DadosEmail").Bind(_configEmail);
-            _path = Path.Combine(".\\ConfigPIX.json");
+            /*_path = Path.Combine(".\\ConfigPIX.json");
             var JSON = System.IO.File.ReadAllText(_path);
             if (JSON != null && JSON.ToString() != "") {
                 obj_config = JObject.Parse(JSON);
             }
             else {
                 obj_config = JObject.Parse("{\"PixVariables\": {\"expire\": 360,\"token\": \"e\",\"inicio\": \"2001-01-01 00:00:02\"}}");
-            }
+            }*/
 
         }
 
@@ -177,12 +177,12 @@ namespace PIX.Repositories
                                     FormUrlEncodedContent fencode = new FormUrlEncodedContent(dict);
 
                                     //_dtmInicioToken = GetAppSetting("PixVariables:inicio");
-                                    _dtmInicioToken = obj_config["PixVariables"]["inicio"].ToString();
+                                    //_dtmInicioToken = obj_config["PixVariables"]["inicio"].ToString();
 
                                     TimeSpan tempo = DateTime.Now.Subtract(Convert.ToDateTime(_dtmInicioToken));
                                     _logger.LogInformation(DateTime.Now.ToString("G") + "-- Dados do token inicio (" + _dtmInicioToken.ToString() + ") validade (" + token.expires_in.ToString() + ") tempo decorrido (" + tempo.TotalSeconds.ToString() + ")");
                                     //Dados do token inicio (08/11/2021 17:00:05) validade (3600) tempo decorrido (-88.23:59:54.2342864)
-                                    if (Convert.ToInt64(obj_config["PixVariables"]["expire"].ToString()) < Convert.ToInt64(tempo.TotalSeconds))
+                                    if (Convert.ToInt64(_dtmInicioToken) < Convert.ToInt64(tempo.TotalSeconds))
                                     {
                                         //Bradesco
                                         _logger.LogInformation(DateTime.Now.ToString("G") + "-- vai buscar token " + cert.ToString());
@@ -194,7 +194,7 @@ namespace PIX.Repositories
                                         str_token = respToken.Content.ReadAsStringAsync().Result;
                                         _dtmInicioToken = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                                     }
-                                    else
+                                    /*else
                                     {
                                         token = new Token
                                         {
@@ -204,7 +204,7 @@ namespace PIX.Repositories
                                             expires_in = Convert.ToInt64(obj_config["PixVariables"]["expire"].ToString())
                                         };
                                         str_token = JsonConvert.SerializeObject(token);
-                                    }
+                                    }*/
 
                                     if (str_token.Contains("access_token"))
                                     {
@@ -217,9 +217,9 @@ namespace PIX.Repositories
                                             /*AddOrUpdateAppSetting("PixVariables:expire", _intExpire);
                                             AddOrUpdateAppSetting("PixVariables:token", token.access_token);
                                             AddOrUpdateAppSetting("PixVariables:inicio", _dtmInicioToken);*/
-                                            AddOrUpdateJSON(".\\ConfigPIX.json", "PixVariables:expire", _intExpire);
-                                            AddOrUpdateJSON(".\\ConfigPIX.json", "PixVariables:token", token.access_token);
-                                            AddOrUpdateJSON(".\\ConfigPIX.json", "PixVariables:inicio", _dtmInicioToken);
+                                            //AddOrUpdateJSON(".\\ConfigPIX.json", "PixVariables:expire", _intExpire);
+                                            //AddOrUpdateJSON(".\\ConfigPIX.json", "PixVariables:token", token.access_token);
+                                            //AddOrUpdateJSON(".\\ConfigPIX.json", "PixVariables:inicio", _dtmInicioToken);
 
 
                                             if (token.access_token.Length > 0)
@@ -476,7 +476,7 @@ namespace PIX.Repositories
                                         respToken = client.PostAsync("https://oauth.hm.bb.com.br/oauth/token", fencode).Result;
                                         str_token = respToken.Content.ReadAsStringAsync().Result;
                                     }
-                                    else
+                                    /*else
                                     {
                                         token = new Token
                                         {
@@ -486,7 +486,7 @@ namespace PIX.Repositories
                                             expires_in = Convert.ToInt64(obj_config["PixVariables"]["expire"].ToString())
                                         };
                                         str_token = JsonConvert.SerializeObject(token);
-                                    }
+                                    }*/
 
                                     if (str_token.Contains("access_token"))
                                     {
@@ -829,12 +829,12 @@ namespace PIX.Repositories
                                         FormUrlEncodedContent fencode = new FormUrlEncodedContent(dict);
 
                                         //_dtmInicioToken = GetAppSetting("PixVariables:inicio");
-                                        _dtmInicioToken = obj_config["PixVariables"]["inicio"].ToString();
+                                        //_dtmInicioToken = obj_config["PixVariables"]["inicio"].ToString();
                                         
                                         TimeSpan tempo = DateTime.Now.Subtract(Convert.ToDateTime(_dtmInicioToken));
                                         _logger.LogInformation(DateTime.Now.ToString("G") + "-- Dados do token inicio (" + _dtmInicioToken.ToString() + ") validade (" + token.expires_in.ToString() + ") tempo decorrido (" + tempo.TotalSeconds.ToString() + ")");
                                         //Dados do token inicio (08/11/2021 17:00:05) validade (3600) tempo decorrido (-88.23:59:54.2342864)
-                                        if (Convert.ToInt64(obj_config["PixVariables"]["expire"].ToString()) < Convert.ToInt64(tempo.TotalSeconds))
+                                        if (Convert.ToInt64(_dtmInicioToken) < Convert.ToInt64(tempo.TotalSeconds))
                                         {
                                             //Bradesco
                                             _logger.LogInformation(DateTime.Now.ToString("G") + "-- vai buscar token " + cert.ToString());
@@ -846,7 +846,7 @@ namespace PIX.Repositories
                                             str_token = respToken.Content.ReadAsStringAsync().Result;
                                             _dtmInicioToken = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                                         }
-                                        else
+                                        /*else
                                         {
                                             token = new Token
                                             {
@@ -856,7 +856,7 @@ namespace PIX.Repositories
                                                 expires_in = Convert.ToInt64(obj_config["PixVariables"]["expire"].ToString())
                                             };
                                             str_token = JsonConvert.SerializeObject(token);
-                                        }
+                                        }*/
 
                                         if (str_token.Contains("access_token"))
                                         {
@@ -1181,7 +1181,7 @@ namespace PIX.Repositories
                                     FormUrlEncodedContent fencode = new FormUrlEncodedContent(dict);
 
                                     //_dtmInicioToken = GetAppSetting("PixVariables:inicio");
-                                    _dtmInicioToken = obj_config["PixVariables"]["inicio"].ToString();
+                                    //_dtmInicioToken = obj_config["PixVariables"]["inicio"].ToString();
 
                                     TimeSpan tempo = DateTime.Now.Subtract(Convert.ToDateTime(_dtmInicioToken));
                                     _logger.LogInformation(DateTime.Now.ToString("G") + "-- Dados do token inicio (" + _dtmInicioToken.ToString() + ") validade (" + token.expires_in.ToString() + ") tempo decorrido (" + tempo.TotalSeconds.ToString() + ")");
@@ -1198,7 +1198,7 @@ namespace PIX.Repositories
                                         str_token = respToken.Content.ReadAsStringAsync().Result;
                                         _dtmInicioToken = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                                     }
-                                    else
+                                    /*else
                                     {
                                         token = new Token
                                         {
@@ -1208,7 +1208,7 @@ namespace PIX.Repositories
                                             expires_in = Convert.ToInt64(obj_config["PixVariables"]["expire"].ToString())
                                         };
                                         str_token = JsonConvert.SerializeObject(token);
-                                    }
+                                    }*/
 
                                     if (str_token.Contains("access_token"))
                                     {
@@ -1503,7 +1503,7 @@ namespace PIX.Repositories
                                     respToken = client.PostAsync("https://oauth.hm.bb.com.br/oauth/token", fencode).Result;
                                     str_token = respToken.Content.ReadAsStringAsync().Result;                                    
                                 }
-                                else
+                                /*else
                                 {
                                     token = new Token
                                     {
@@ -1514,7 +1514,7 @@ namespace PIX.Repositories
                                         expires_in = Convert.ToInt64(obj_config["PixVariables"]["expire"].ToString())
                                     };
                                     str_token = JsonConvert.SerializeObject(token);
-                                }
+                                }*/
 
                                 if (str_token.Contains("access_token"))
                                 {
@@ -1743,7 +1743,7 @@ namespace PIX.Repositories
                                 FormUrlEncodedContent fencode = new FormUrlEncodedContent(dict);
 
                                 //_dtmInicioToken = GetAppSetting("PixVariables:inicio");
-                                _dtmInicioToken = obj_config["PixVariables"]["inicio"].ToString();
+                                //_dtmInicioToken = obj_config["PixVariables"]["inicio"].ToString();
 
                                 TimeSpan tempo = DateTime.Now.Subtract(Convert.ToDateTime(_dtmInicioToken));
                                 _logger.LogInformation(DateTime.Now.ToString("G") + "-- Dados do token inicio (" + _dtmInicioToken.ToString() + ") validade (" + token.expires_in.ToString() + ") tempo decorrido (" + tempo.TotalSeconds.ToString() + ")");
@@ -1762,7 +1762,7 @@ namespace PIX.Repositories
                                     _dtmInicioToken = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                                     _logger.LogInformation(DateTime.Now.ToString("G") + "-- Retornou novo token .");
                                 }
-                                else
+                                /*else
                                 {
                                     _logger.LogInformation(DateTime.Now.ToString("G") + "-- Mantem token que não expirou .");
                                     token = new Token
@@ -1774,7 +1774,7 @@ namespace PIX.Repositories
                                         expires_in = Convert.ToInt64(obj_config["PixVariables"]["expire"].ToString())
                                     };
                                     str_token = JsonConvert.SerializeObject(token);
-                                }
+                                }*/
 
                                 if (str_token.Contains("access_token"))
                                 {
@@ -2006,7 +2006,7 @@ namespace PIX.Repositories
 
                             TimeSpan tempo = DateTime.Now.Subtract(Convert.ToDateTime(_dtmInicioToken));
                             //token.expires_in = Convert.ToInt64(_config.GetSection("PixVariables")["expire"].ToString());
-                            token.expires_in = Convert.ToInt64(obj_config["PixVariables"]["expire"].ToString());
+                            //token.expires_in = Convert.ToInt64(obj_config["PixVariables"]["expire"].ToString());
 
                             if (token.expires_in < Convert.ToInt64(tempo.TotalSeconds))
                             {
@@ -2014,7 +2014,7 @@ namespace PIX.Repositories
                                 respToken = client.PostAsync("https://oauth.hm.bb.com.br/oauth/token", fencode).Result;
                                 str_token = respToken.Content.ReadAsStringAsync().Result;
                             }
-                            else
+                            /*else
                             {
                                 token = new Token
                                 {
@@ -2025,7 +2025,7 @@ namespace PIX.Repositories
                                     expires_in = Convert.ToInt64(obj_config["PixVariables"]["expire"].ToString())
                                 };
                                 str_token = JsonConvert.SerializeObject(token);
-                            }
+                            }*/
 
                             if (str_token.Contains("access_token"))
                             {
@@ -2568,7 +2568,7 @@ namespace PIX.Repositories
                                 FormUrlEncodedContent fencode = new FormUrlEncodedContent(dict);
 
                                 //_dtmInicioToken = GetAppSetting("PixVariables:inicio");
-                                _dtmInicioToken = obj_config["PixVariables"]["inicio"].ToString();
+                                //_dtmInicioToken = obj_config["PixVariables"]["inicio"].ToString();
 
                                 TimeSpan tempo = DateTime.Now.Subtract(Convert.ToDateTime(_dtmInicioToken));
                                 if (token.expires_in < Convert.ToInt64(tempo.TotalSeconds))
@@ -2579,7 +2579,7 @@ namespace PIX.Repositories
                                     str_token = respToken.Content.ReadAsStringAsync().Result;
                                     _dtmInicioToken = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                                 }
-                                else
+                                /*else
                                 {
                                     token = new Token
                                     {
@@ -2589,7 +2589,7 @@ namespace PIX.Repositories
                                         expires_in = Convert.ToInt64(obj_config["PixVariables"]["expire"].ToString())
                                     };
                                     str_token = JsonConvert.SerializeObject(token);
-                                }
+                                }*/
 
                                 if (str_token.Contains("access_token"))
                                 {
@@ -2814,7 +2814,7 @@ namespace PIX.Repositories
                                     respToken = client.PostAsync("https://qrpix-h.bradesco.com.br/auth/server/oauth/token", fencode).Result;
                                     str_token = respToken.Content.ReadAsStringAsync().Result;
                                 }
-                                else
+                                /*else
                                 {
                                     token = new Token
                                     {
@@ -2824,7 +2824,7 @@ namespace PIX.Repositories
                                         expires_in = Convert.ToInt64(obj_config["PixVariables"]["expire"].ToString())
                                     };
                                     str_token = JsonConvert.SerializeObject(token);
-                                }
+                                }*/
 
                                 if (str_token.Contains("access_token"))
                                 {
@@ -3798,7 +3798,7 @@ namespace PIX.Repositories
                                     respToken = client.PostAsync("https://qrpix-h.bradesco.com.br/auth/server/oauth/token", fencode).Result;
                                     str_token = respToken.Content.ReadAsStringAsync().Result;
                                 }
-                                else
+                                /*else
                                 {
                                     token = new Token
                                     {
@@ -3808,7 +3808,7 @@ namespace PIX.Repositories
                                         expires_in = Convert.ToInt64(obj_config["PixVariables"]["expire"].ToString())
                                     };
                                     str_token = JsonConvert.SerializeObject(token);
-                                }
+                                }*/
 
                                 if (str_token.Contains("access_token"))
                                 {
@@ -3964,7 +3964,7 @@ namespace PIX.Repositories
                                     //respToken = client.PostAsync("https://oauth.hm.bb.com.br/oauth/token", fencode).Result;
                                     str_token = respToken.Content.ReadAsStringAsync().Result;
                                 }
-                                else
+                                /*else
                                 {
                                     token = new Token
                                     {
@@ -3974,7 +3974,7 @@ namespace PIX.Repositories
                                         expires_in = Convert.ToInt64(obj_config["PixVariables"]["expire"].ToString())
                                     };
                                     str_token = JsonConvert.SerializeObject(token);
-                                }
+                                }*/
 
                                 if (str_token.Contains("access_token"))
                                 {
