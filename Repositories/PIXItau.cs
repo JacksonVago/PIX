@@ -2921,9 +2921,11 @@ namespace PIX.Repositories
 
         public string ManutencaoTabela<T>(string Operacao, IList<T> dados, string Tabela, SqlConnection conn, SqlTransaction tran)
         {
-
+            _logger.LogInformation(DateTime.Now.ToString("G") + " ManutencaoTabela - Dados list (" + dados.ToString() + ")");
             DataTable dtt_dados = ToDataTable<T>(dados);
+            _logger.LogInformation(DateTime.Now.ToString("G") + " ManutencaoTabela - Dados datatable (" + dtt_dados.ToString() + ")");
             string str_dadosXml = SaveThroughXML(dtt_dados, Tabela).ToString();
+            _logger.LogInformation(DateTime.Now.ToString("G") + " ManutencaoTabela - Dados XML (" + str_dadosXml + ")");
 
             try
             {
@@ -2944,13 +2946,15 @@ namespace PIX.Repositories
                 command.Parameters.Add(new SqlParameter("@Dados", str_dadosXml));
                 command.Parameters.Add(str_retorno);
 
-
+                _logger.LogInformation(DateTime.Now.ToString("G") + " ManutencaoTabela - Antes de enviar ao banco");
                 command.ExecuteNonQuery();
+                _logger.LogInformation(DateTime.Now.ToString("G") + " ManutencaoTabela - Deposi de enviar ao banco");
 
                 return str_retorno.Value.ToString();
             }
             catch (Exception ex)
             {
+                _logger.LogInformation(DateTime.Now.ToString("G") + " ManutencaoTabela erro - " + ex.Message);
                 throw ex;
             }
         }
