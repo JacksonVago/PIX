@@ -83,7 +83,7 @@ namespace PIX.Services
                     {
                         //Processa PIX não registrados
                         _logger.LogInformation(DateTime.Now.ToString("G") + "-- Identifica o banco que processará o PIX");
-                        filtros.Add(new Params { nome = "id", valor = "723430", tipo = typeof(Int64).Name });
+                        filtros.Add(new Params { nome = "id", valor = "724748", tipo = typeof(Int64).Name });
                         filtros.Add(new Params { nome = "id_empresa", valor = "0", tipo = typeof(Int64).Name });
                         filtros.Add(new Params { nome = "cnpj", valor = "0", tipo = typeof(Int64).Name });
                         filtros.Add(new Params { nome = "banco", valor = "0", tipo = typeof(Int32).Name });
