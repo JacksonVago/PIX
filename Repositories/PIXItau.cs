@@ -1485,7 +1485,7 @@ namespace PIX.Repositories
 
                         if (dtt_trans_pix.Rows.Count > 0)
                         {
-                            _logger.LogInformation(DateTime.Now.ToString("G") + "-- Achou pedido (" + pedido.numpedido.ToString() + ")");
+                            _logger.LogInformation(DateTime.Now.ToString("G") + "-- Devolução Achou pedido (" + pedido.numpedido.ToString() + ")");
 
                             //Local homologação
                             //var cert = new X509Certificate2(@"D:\Jackson\Clientes\Guaibim\certificados\2026\pixitau.pfx", "1234", X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.PersistKeySet | X509KeyStorageFlags.Exportable);
@@ -1517,7 +1517,7 @@ namespace PIX.Repositories
 
                                 //str_ret = _repPIX.EnviaEmailAviso(str_msg, "Aviso de expiração de certificado PIX", _configEmail);
                             }
-                            _logger.LogInformation(DateTime.Now.ToString("G") + "-- Selecionou certificado " + cert.ToString());
+                            _logger.LogInformation(DateTime.Now.ToString("G") + "-- Devolução Selecionou certificado " + cert.ToString());
 
 
                             var handler = new HttpClientHandler();

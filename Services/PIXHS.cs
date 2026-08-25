@@ -110,7 +110,7 @@ namespace PIX.Services
                         {
                             for (int i = 0; i < dtt_tran.Rows.Count; i++)
                             {
-                                _logger.LogInformation(DateTime.Now.ToString("G") + "-- Identifica o banco que processará o PIX");
+                                _logger.LogInformation(DateTime.Now.ToString("G") + "-- Processa o PIX " + dtt_tran.Rows[i]["id"].ToString());
 
 
                                 pedido.Filial = Convert.ToInt32(dtt_tran.Rows[i]["int_filial"]);
@@ -236,7 +236,7 @@ namespace PIX.Services
                         
 
                         //Devolução PIX (devolver Valor)                        
-                        _logger.LogInformation(DateTime.Now.ToString("G") + "-- Identifica o banco que processará o PIX");
+                        _logger.LogInformation(DateTime.Now.ToString("G") + "-- Devolução nIdentifica o banco que processará o PIX");
                         if (filtros.Count > 0)
                         {
                             filtros.Clear();
@@ -264,7 +264,7 @@ namespace PIX.Services
                         {
                             for (int i = 0; i < dtt_tran.Rows.Count; i++)
                             {
-                                _logger.LogInformation(DateTime.Now.ToString("G") + "-- Identifica o banco que processará o PIX");
+                                _logger.LogInformation(DateTime.Now.ToString("G") + "-- Devolução Identifica o banco que processará o PIX");
 
 
                                 pedido.Filial = Convert.ToInt32(dtt_tran.Rows[i]["int_filial"]);
