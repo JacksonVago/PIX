@@ -1,0 +1,9 @@
+{
+  "EmailPIX": {
+    "remet": "ti.integracao@lojasguaibim.com.br",
+    "dest": "ti.integracao@lojasguaibim.com.br",
+    "cc": "",
+    "cco": "",
+    "cert_freq": "-1" //Frequencia de envio dos e-mails de certificados 0 --> Enviar sempre / -1 --> Uma vez ao dia / -2 --> Uma vez por semana / -3 --> Uma vez por mês
+  }
+} 
