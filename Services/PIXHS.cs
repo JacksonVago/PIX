@@ -264,7 +264,7 @@ namespace PIX.Services
                         {
                             for (int i = 0; i < dtt_tran.Rows.Count; i++)
                             {
-                                _logger.LogInformation(DateTime.Now.ToString("G") + "-- Devolução Identifica o banco que processará o PIX");
+                                _logger.LogInformation(DateTime.Now.ToString("G") + "-- Devolução processa o PIX " + dtt_tran.Rows[i]["id"].ToString());
 
 
                                 pedido.Filial = Convert.ToInt32(dtt_tran.Rows[i]["int_filial"]);
@@ -289,7 +289,7 @@ namespace PIX.Services
                         }
 
                         //Confirmas as Devoluções solicitadas ao banco
-                        _logger.LogInformation(DateTime.Now.ToString("G") + "-- Identifica o banco que processará o PIX");
+                        _logger.LogInformation(DateTime.Now.ToString("G") + "-- Confirma devolução Identifica o banco que processará o PIX");
                         if (filtros.Count > 0)
                         {
                             filtros.Clear();
@@ -316,7 +316,7 @@ namespace PIX.Services
                         {
                             for (int i = 0; i < dtt_tran.Rows.Count; i++)
                             {
-                                _logger.LogInformation(DateTime.Now.ToString("G") + "-- Identifica o banco que processará o PIX");
+                                _logger.LogInformation(DateTime.Now.ToString("G") + "-- Confirma devolução processa PIX " + dtt_tran.Rows[i]["id"].ToString());
 
 
                                 pedido.Filial = Convert.ToInt32(dtt_tran.Rows[i]["int_filial"]);
