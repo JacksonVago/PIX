@@ -1596,6 +1596,7 @@ namespace PIX.Repositories
 
                                             for (int i = 0; i < dtt_trans_pix.Rows.Count; i++)
                                             {
+                                                _logger.LogInformation(DateTime.Now.ToString("G") + "-- Devolução monta JSON ");
                                                 // Associar o token aos headers do objeto
                                                 // do tipo HttpClient
                                                 client.DefaultRequestHeaders.Accept.Clear();
@@ -1618,6 +1619,7 @@ namespace PIX.Repositories
                                                     str_json.Append("},");
                                                 }
 
+                                                _logger.LogInformation(DateTime.Now.ToString("G") + "-- Devolução Envia om para o banco " + str_json.ToString());
                                                 //Envia om para o banco
                                                 //Produção
                                                 HttpResponseMessage response = client.PutAsync(dtt_trans_pix.Rows[0]["str_urlreg_pix"].ToString() + "/pix/" + dtt_trans_pix.Rows[i]["str_idfim"].ToString() + "/devolucao/" + str_id, new StringContent(str_json.ToString(), Encoding.UTF8, "application/json")).Result;
@@ -1627,6 +1629,7 @@ namespace PIX.Repositories
 
                                                 if (response.StatusCode == HttpStatusCode.OK || response.StatusCode == HttpStatusCode.Created)
                                                 {
+                                                    _logger.LogInformation(DateTime.Now.ToString("G") + "-- Devolução retorno banco " + response.Content.ReadAsStringAsync().Result.ToString());
                                                     str_ret = response.Content.ReadAsStringAsync().Result;
                                                     if (str_ret.Length > 0)
                                                     {
