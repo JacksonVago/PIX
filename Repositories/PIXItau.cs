@@ -1841,10 +1841,15 @@ namespace PIX.Repositories
                                     //Local homologação
                                     //var cert = new X509Certificate2(@"D:\Jackson\Clientes\Guaibim\certificados\2026\pixitau.pfx", "1234", X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.PersistKeySet | X509KeyStorageFlags.Exportable);
                                     var cert = new X509Certificate2(@"./pixitau.pfx", "1234", X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.PersistKeySet | X509KeyStorageFlags.Exportable);
+                                    _logger.LogInformation(DateTime.Now.ToString("G") + "-- Carregou cerificado (" + cert.ToString() + ")");
+
                                     if ((Convert.ToDateTime(cert.GetExpirationDateString()) - DateTime.Now).TotalDays < 30)
                                     {
+                                        _logger.LogInformation(DateTime.Now.ToString("G") + "-- monta mensagem");
                                         str_msg = "Certificado PIX Itaú (" + cert.ToString() + ") será expirado em " + (Convert.ToDateTime(cert.GetExpirationDateString()) - DateTime.Now).TotalDays.ToString() + " dias.";
 
+                                        _logger.LogInformation(DateTime.Now.ToString("G") + "-- mensagem (" + str_msg + ")");
+                                        _logger.LogInformation(DateTime.Now.ToString("G") + "-- data e hora (" + DateTime.Now.AddHours(-3) + ")");
 
                                         List<envEmail> envMail = new List<envEmail>();
                                         envMail.Add(new envEmail
@@ -1864,6 +1869,8 @@ namespace PIX.Repositories
                                             int_situacao = -1, //0 - Não enviado / 1 - Enviado / 2 - Com erro / -1 - Uma vez ao dia / -2 - Uma vez por semana / -3 - Uma vez por mês
                                             str_assunto = "Aviso de expiração de certificado - PIX"
                                         });
+
+                                        _logger.LogInformation(DateTime.Now.ToString("G") + "-- Gravar e-mail (" + envMail.ToString() + ")");
 
                                         str_retorno = ManutencaoTabela<envEmail>("I", envMail, "ntv_tbl_envio_emails", conn, transaction);
 
@@ -2936,6 +2943,7 @@ namespace PIX.Repositories
                 command.Parameters.Add(new SqlParameter("@Tp_processo", Operacao));
                 command.Parameters.Add(new SqlParameter("@Dados", str_dadosXml));
                 command.Parameters.Add(str_retorno);
+
 
                 command.ExecuteNonQuery();
 
