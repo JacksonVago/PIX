@@ -1553,6 +1553,7 @@ namespace PIX.Repositories
                                 respToken = client.PostAsync("https://sts.itau.com.br/api/oauth/token/", fencode).Result; //Produção
                                 _logger.LogInformation(DateTime.Now.ToString("G") + "-- retorno token " + respToken.ToString());
                                 str_token = respToken.Content.ReadAsStringAsync().Result;
+                                _logger.LogInformation(DateTime.Now.ToString("G") + "-- token " + str_token);
                                 _dtmInicioToken = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
                                 /*
