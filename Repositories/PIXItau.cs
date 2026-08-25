@@ -246,7 +246,7 @@ namespace PIX.Repositories
 
                                                 //Envia om para o banco
                                                 //Produção
-                                                HttpResponseMessage response = client.PutAsync(dtt_trans_pix.Rows[0]["str_urlreg_pix"].ToString() + "/pix/" + dtt_trans_pix.Rows[i]["str_idfim"].ToString() + "/devolucao/" + str_id, new StringContent(str_json.ToString(), Encoding.UTF8, "application/json")).Result;
+                                                HttpResponseMessage response = client.GetAsync(dtt_trans_pix.Rows[0]["str_urlreg_pix"].ToString() + "/pix/" + dtt_trans_pix.Rows[i]["str_idfim"].ToString() + "/devolucao/" + dtt_trans_pix.Rows[i]["str_id_devol"].ToString()).Result;
                                                 //Novo endpoint
                                                 //HttpResponseMessage response = client.GetAsync("https://pix-pj.api.itau.com/regulatorio-pix/v2" + "/pix/" + dtt_trans_pix.Rows[i]["str_idfim"].ToString() + "/devolucao/" + dtt_trans_pix.Rows[i]["str_id_devol"].ToString()).Result;
 
