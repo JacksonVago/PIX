@@ -83,7 +83,8 @@ namespace PIX.Services
                     {
                         //Processa PIX não registrados
                         _logger.LogInformation(DateTime.Now.ToString("G") + "-- Identifica o banco que processará o PIX");
-                        filtros.Add(new Params { nome = "id", valor = "724748", tipo = typeof(Int64).Name });
+                        //filtros.Add(new Params { nome = "id", valor = "724748", tipo = typeof(Int64).Name });
+                        filtros.Add(new Params { nome = "id", valor = "0", tipo = typeof(Int64).Name });
                         filtros.Add(new Params { nome = "id_empresa", valor = "0", tipo = typeof(Int64).Name });
                         filtros.Add(new Params { nome = "cnpj", valor = "0", tipo = typeof(Int64).Name });
                         filtros.Add(new Params { nome = "banco", valor = "0", tipo = typeof(Int32).Name });
@@ -93,12 +94,12 @@ namespace PIX.Services
                         filtros.Add(new Params { nome = "str_tipoped", valor = "", tipo = typeof(string).Name });
                         filtros.Add(new Params { nome = "int_pedido", valor = "0", tipo = typeof(Int64).Name });
                         filtros.Add(new Params { nome = "int_operador", valor = "0", tipo = typeof(Int32).Name });
-                        filtros.Add(new Params { nome = "int_caixa", valor = "0", tipo = typeof(Int16).Name });
-                        filtros.Add(new Params { nome = "Itens", valor = "0", tipo = typeof(Int16).Name });
-                        filtros.Add(new Params { nome = "situacao", valor = "-1", tipo = typeof(Int16).Name });                        //filtros.Add(new Params { nome = "int_operador", valor = "-1", tipo = typeof(Int32).Name });
-                        //filtros.Add(new Params { nome = "int_caixa", valor = "-2", tipo = typeof(Int16).Name });
+                        //filtros.Add(new Params { nome = "int_caixa", valor = "0", tipo = typeof(Int16).Name });
                         //filtros.Add(new Params { nome = "Itens", valor = "0", tipo = typeof(Int16).Name });
-                        //filtros.Add(new Params { nome = "situacao", valor = "0", tipo = typeof(Int16).Name });
+                        //filtros.Add(new Params { nome = "situacao", valor = "-1", tipo = typeof(Int16).Name });                        //filtros.Add(new Params { nome = "int_operador", valor = "-1", tipo = typeof(Int32).Name });
+                        filtros.Add(new Params { nome = "int_caixa", valor = "-2", tipo = typeof(Int16).Name });
+                        filtros.Add(new Params { nome = "Itens", valor = "0", tipo = typeof(Int16).Name });
+                        filtros.Add(new Params { nome = "situacao", valor = "0", tipo = typeof(Int16).Name });
                         filtros.Add(new Params { nome = "DtIni", valor = "2001-01-01", tipo = typeof(DateTime).Name });
                         filtros.Add(new Params { nome = "DtFim", valor = "2001-01-01", tipo = typeof(DateTime).Name });
                         
@@ -230,7 +231,7 @@ namespace PIX.Services
                                         break;
                                 }
                             }
-                        }
+                        }*/
                         
 
                         //Devolução PIX (devolver Valor)                        
@@ -239,7 +240,7 @@ namespace PIX.Services
                         {
                             filtros.Clear();
                         }
-                        filtros.Add(new Params { nome = "id", valor = "0", tipo = typeof(Int64).Name });
+                        filtros.Add(new Params { nome = "id", valor = "724748", tipo = typeof(Int64).Name });
                         filtros.Add(new Params { nome = "id_empresa", valor = "0", tipo = typeof(Int64).Name });
                         filtros.Add(new Params { nome = "cnpj", valor = "0", tipo = typeof(Int64).Name });
                         filtros.Add(new Params { nome = "banco", valor = "0", tipo = typeof(Int32).Name });
@@ -251,7 +252,8 @@ namespace PIX.Services
                         filtros.Add(new Params { nome = "int_operador", valor = "-1", tipo = typeof(Int32).Name });
                         filtros.Add(new Params { nome = "int_caixa", valor = "-2", tipo = typeof(Int16).Name });
                         filtros.Add(new Params { nome = "Itens", valor = "0", tipo = typeof(Int16).Name });
-                        filtros.Add(new Params { nome = "situacao", valor = "-9", tipo = typeof(Int16).Name });
+                        //filtros.Add(new Params { nome = "situacao", valor = "-9", tipo = typeof(Int16).Name });
+                        filtros.Add(new Params { nome = "situacao", valor = "2", tipo = typeof(Int16).Name });
                         filtros.Add(new Params { nome = "DtIni", valor = "2001-01-01", tipo = typeof(DateTime).Name });
                         filtros.Add(new Params { nome = "DtFim", valor = "2001-01-01", tipo = typeof(DateTime).Name });
 
@@ -291,7 +293,7 @@ namespace PIX.Services
                         {
                             filtros.Clear();
                         }
-                        filtros.Add(new Params { nome = "id", valor = "0", tipo = typeof(Int64).Name });
+                        filtros.Add(new Params { nome = "id", valor = "724748", tipo = typeof(Int64).Name });
                         filtros.Add(new Params { nome = "id_empresa", valor = "0", tipo = typeof(Int64).Name });
                         filtros.Add(new Params { nome = "cnpj", valor = "0", tipo = typeof(Int64).Name });
                         filtros.Add(new Params { nome = "banco", valor = "0", tipo = typeof(Int32).Name });
@@ -334,7 +336,7 @@ namespace PIX.Services
                                         break;
                                 }
                             }
-                        }*/
+                        }
 
                     }
                     catch (Exception ex)
