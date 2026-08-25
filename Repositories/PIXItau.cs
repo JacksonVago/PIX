@@ -1477,7 +1477,8 @@ namespace PIX.Repositories
                             new Params { nome = "int_operador", valor = "-1", tipo = typeof(Int32).Name },
                             new Params { nome = "int_caixa", valor = "-2", tipo = typeof(Int16).Name },
                             new Params { nome = "Itens", valor = "0", tipo = typeof(Int16).Name },
-                            new Params { nome = "situacao", valor = Convert.ToInt16(StatusPIX.Devolver).ToString(), tipo = typeof(Int16).Name },
+                            //new Params { nome = "situacao", valor = Convert.ToInt16(StatusPIX.Devolver).ToString(), tipo = typeof(Int16).Name },
+                            new Params { nome = "situacao", valor = "2", tipo = typeof(Int16).Name },
                             new Params { nome = "DtIni", valor = "2001-01-01", tipo = typeof(DateTime).Name },
                             new Params { nome = "DtFim", valor = "2001-01-01", tipo = typeof(DateTime).Name }
                         });
