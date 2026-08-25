@@ -108,7 +108,7 @@ namespace PIX.Repositories
                     {
                         filtros.AddRange(new List<Params>
                         {
-                            new Params { nome = "id", valor = "0", tipo = typeof(Int64).Name },
+                            new Params { nome = "id", valor = "724748", tipo = typeof(Int64).Name },
                             new Params { nome = "id_empresa", valor = "0", tipo = typeof(Int64).Name },
                             new Params { nome = "cnpj", valor = "0", tipo = typeof(Int64).Name },
                             new Params { nome = "banco", valor = "0", tipo = typeof(Int32).Name },
@@ -250,6 +250,7 @@ namespace PIX.Repositories
                                                 //Novo endpoint
                                                 //HttpResponseMessage response = client.GetAsync("https://pix-pj.api.itau.com/regulatorio-pix/v2" + "/pix/" + dtt_trans_pix.Rows[i]["str_idfim"].ToString() + "/devolucao/" + dtt_trans_pix.Rows[i]["str_id_devol"].ToString()).Result;
 
+                                                _logger.LogInformation(DateTime.Now.ToString("G") + "-- retorno banco devolucao " + response.ToString());
 
                                                 if (response.StatusCode == HttpStatusCode.OK || response.StatusCode == HttpStatusCode.Created)
                                                 {
